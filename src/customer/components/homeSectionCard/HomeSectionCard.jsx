@@ -59,9 +59,9 @@ const HomeSectionCard = ({ data, sectionName }) => {
         <AliceCarousel
           items={items}
           responsive={{
-            0: { items: 2 },
+            0: { items: 1 },
             720: { items: 4 },
-            1024: { items: 5 },
+            1024: { items: 4 },
           }}
           disableButtonsControls
           disableDotsControls
