@@ -61,7 +61,7 @@ const HomeSectionCard = ({ data, sectionName }) => {
           responsive={{
             0: { items: 1 },
             720: { items: 4 },
-            1024: { items: 4 },
+            1024: { items: 5 },
           }}
           disableButtonsControls
           disableDotsControls
