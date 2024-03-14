@@ -1,0 +1,7 @@
+.productCard .textPart{
+transition: transform .4s ease-out;
+}
+
+.productCard:hover .textPart{
+    transform: translatey(-2rem);
+}

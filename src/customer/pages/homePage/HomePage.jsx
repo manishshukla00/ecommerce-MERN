@@ -4,7 +4,6 @@ import HomeSectionCard from "../../components/homeSectionCard/HomeSectionCard";
 import { mens_kurta } from "../../../data/ecommerce-products-data/Men/men_kurta";
 import { sareePage1 } from "../../../data/ecommerce-products-data/Saree/page1";
 import { mensShoesPage1 } from "../../../data/ecommerce-products-data/shoes";
-import Footer from "../../components/Footer/Footer";
 
 const HomePage = () => {
   return (
@@ -15,7 +14,6 @@ const HomePage = () => {
       <HomeSectionCard data={mens_kurta} sectionName="Mens Shirt" />
       <HomeSectionCard data={sareePage1} sectionName="Women's Saree" />
       <HomeSectionCard data={sareePage1} sectionName="Women's Dress" />
-      <Footer />
     </div>
   );
 };

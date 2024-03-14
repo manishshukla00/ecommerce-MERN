@@ -132,6 +132,7 @@ const navigation = {
     },
   ],
   pages: [
+    { name: "Products", href: "/products" },
     { name: "Company", href: "#" },
     { name: "Stores", href: "#" },
   ],
@@ -345,7 +346,7 @@ export default function Navigation() {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="#">
+                <a href="/">
                   <span className="sr-only">Your Company</span>
                   <img
                     className="h-10 w-auto"
