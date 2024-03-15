@@ -1,11 +1,15 @@
 import React from "react";
 import "./ProductCard.css";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
+  const goto = () => navigate("/productdetail");
   return (
     <div className="productCard w-[15rem] h-[25rem] mx-2 mb-10 transition-all cursor-pointer hover:shadow-black hover:shadow-2xl">
       <div className="h-[20rem]">
         <img
+          onClick={goto}
           className="w-full h-full object-cover object-left-top"
           src={product.imageUrl}
           alt=""
