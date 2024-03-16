@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { RadioGroup } from "@headlessui/react";
 import Rating from "@mui/material/Rating";
+import Button from "@mui/material/Button";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -57,7 +58,6 @@ function classNames(...classes) {
 }
 
 export default function ProductDetails() {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
 
   return (
@@ -101,7 +101,7 @@ export default function ProductDetails() {
             </li>
           </ol>
         </nav>
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10 px-4 pt-10">
+        <section className="max-w-full px-20 grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10 px-4 pt-10">
           {/* Image gallery */}
           <div className="flex flex-col items-center">
             <div className="max-w-[30rem] max-h-[35rem] overflow-hidden rounded-lg">
@@ -158,7 +158,7 @@ export default function ProductDetails() {
                 </div>
               </div>
 
-              <form className="mt-10">
+              <form className="h-20 mt-10">
                 {/* Sizes */}
                 <div className="mt-10">
                   <div className="flex items-center justify-between">
@@ -233,13 +233,9 @@ export default function ProductDetails() {
                     </div>
                   </RadioGroup>
                 </div>
-
-                <button
-                  type="submit"
-                  className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >
-                  Add to bag
-                </button>
+                <Button variant="contained" sx={{ marginTop: 8 }}>
+                  Add To Cart
+                </Button>
               </form>
             </div>
           </div>
