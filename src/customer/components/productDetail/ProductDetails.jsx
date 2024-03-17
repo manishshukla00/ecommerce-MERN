@@ -2,6 +2,8 @@ import { useState } from "react";
 import { RadioGroup } from "@headlessui/react";
 import Rating from "@mui/material/Rating";
 import Button from "@mui/material/Button";
+import { mens_kurta } from "../../../data/ecommerce-products-data/Men/men_kurta";
+import HomeSectionCard from "../homeSectionCard/HomeSectionCard";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -233,11 +235,22 @@ export default function ProductDetails() {
                     </div>
                   </RadioGroup>
                 </div>
-                <Button variant="contained" sx={{ marginTop: 8 }}>
+                <Button
+                  variant="contained"
+                  sx={{ marginTop: 4, px: 4, py: 2, bgcolor: "#9155fd" }}
+                >
                   Add To Cart
                 </Button>
               </form>
             </div>
+          </div>
+        </section>
+        <section className="pt-10">
+          <h1 className="text-2xl font-bold md:text-center px-8 py-5">
+            Similar Products
+          </h1>
+          <div className="space-y-5">
+            <HomeSectionCard data={mens_kurta} />
           </div>
         </section>
       </div>

@@ -35,19 +35,29 @@ const Footer = () => {
             Solutions
           </Typography>
           <div>
-            <Button gutterBottom>Marketing</Button>
+            <Button sx={{ textTransform: "none" }} gutterBottom>
+              Marketing
+            </Button>
           </div>
           <div>
-            <Button gutterBottom>Analytics</Button>
+            <Button sx={{ textTransform: "none" }} gutterBottom>
+              Analytics
+            </Button>
           </div>
           <div>
-            <Button gutterBottom>Commerce</Button>
+            <Button sx={{ textTransform: "none" }} gutterBottom>
+              Commerce
+            </Button>
           </div>
           <div>
-            <Button gutterBottom>Insights</Button>
+            <Button sx={{ textTransform: "none" }} gutterBottom>
+              Insights
+            </Button>
           </div>
           <div>
-            <Button gutterBottom>Support</Button>
+            <Button sx={{ textTransform: "none" }} gutterBottom>
+              Support
+            </Button>
           </div>
         </Grid>
         <Grid sx={12} sm={6} md={3}>
@@ -55,10 +65,14 @@ const Footer = () => {
             Documentation
           </Typography>
           <div>
-            <Button gutterBottom>Guides</Button>
+            <Button sx={{ textTransform: "none" }} gutterBottom>
+              Guides
+            </Button>
           </div>
           <div>
-            <Button gutterBottom>API Status</Button>
+            <Button sx={{ textTransform: "none" }} gutterBottom>
+              API Status
+            </Button>
           </div>
         </Grid>
         <Grid sx={12} sm={6} md={3}>
@@ -66,13 +80,19 @@ const Footer = () => {
             Legal
           </Typography>
           <div>
-            <Button gutterBottom>Claim</Button>
+            <Button sx={{ textTransform: "none" }} gutterBottom>
+              Claim
+            </Button>
           </div>
           <div>
-            <Button gutterBottom>Privacy</Button>
+            <Button sx={{ textTransform: "none" }} gutterBottom>
+              Privacy
+            </Button>
           </div>
           <div>
-            <Button gutterBottom>Terms</Button>
+            <Button sx={{ textTransform: "none" }} gutterBottom>
+              Terms
+            </Button>
           </div>
         </Grid>
         <Grid className="pt-20" xs={12}>
