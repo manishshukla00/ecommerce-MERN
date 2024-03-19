@@ -5,11 +5,31 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import useHistory, { useLocation } from "react-router-dom";
+import DeliveryAddressForm from "./DeliveryAddressForm";
+import OrderSummary from "./OrderSummary";
 
-const steps = ["Login", "Delivery Address", "Order Summery", "Payment"];
+const steps = ["Login", "Delivery Address", "Order Summary", "Payment"];
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const history = useHistory();
+  const location = useLocation();
+  const querySearch = new URLSearchParams(location.search);
+  let stepParam = parseInt(querySearch.get("step"));
+
+  if (!isNaN(stepParam)) {
+    // Ensure stepParam is within valid range
+    stepParam = Math.max(0, Math.min(stepParam, steps.length - 1));
+    setActiveStep(stepParam);
+  }
+
+  React.useEffect(() => {
+    // Update URL params when active step changes
+    const params = new URLSearchParams(location.search);
+    params.set("step", activeStep.toString());
+    history.replace({ search: params.toString() });
+  }, [activeStep, history, location.search]);
 
   const isStepOptional = (step) => {
     return step === 1;
@@ -23,20 +43,6 @@ export default function Checkout() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleSkip = () => {
-    if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
-      throw new Error("You can't skip a step that isn't optional.");
-    }
-
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
   return (
     <div className="px-10 lg:px-20">
       <Box sx={{ width: "100%" }}>
@@ -44,11 +50,6 @@ export default function Checkout() {
           {steps.map((label, index) => {
             const stepProps = {};
             const labelProps = {};
-            if (isStepOptional(index)) {
-              labelProps.optional = (
-                <Typography variant="caption">Optional</Typography>
-              );
-            }
             return (
               <Step key={label} {...stepProps}>
                 <StepLabel {...labelProps}>{label}</StepLabel>
@@ -63,7 +64,6 @@ export default function Checkout() {
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Box sx={{ flex: "1 1 auto" }} />
-              <Button onClick={handleReset}>Reset</Button>
             </Box>
           </React.Fragment>
         ) : (
@@ -84,6 +84,10 @@ export default function Checkout() {
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
               </Button>
             </Box>
+            <div>
+              {activeStep === 1 ? <DeliveryAddressForm /> : null}
+              {activeStep === 2 ? <OrderSummary /> : null}
+            </div>
           </React.Fragment>
         )}
       </Box>
